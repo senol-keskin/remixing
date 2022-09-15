@@ -1,12 +1,11 @@
 import { renderToString } from "react-dom/server"
 import { CacheProvider } from "@emotion/react"
 import createEmotionServer from "@emotion/server/create-instance"
-import type { EntryContext } from "@remix-run/node"
+import type { EntryContext } from "@remix-run/node" // Depends on the runtime you choose
 import { RemixServer } from "@remix-run/react"
-import "dotenv/config"
 
-import { ServerStyleContext } from "~/lib/emotion/context"
-import { createEmotionCache } from "~/lib/emotion/createEmotionCache"
+import { ServerStyleContext } from "./context"
+import createEmotionCache from "./createEmotionCache"
 
 export default function handleRequest(
   request: Request,
