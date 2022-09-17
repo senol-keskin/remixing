@@ -1,10 +1,11 @@
 import { Container } from "@chakra-ui/react"
-import { Link } from "@remix-run/react"
+
+import { LinkButton } from "~/components/LinkButton"
 
 export default function Index() {
   return (
     <Container>
-      <Link to="/posts">Blog Posts</Link>
+      <LinkButton to="/posts">Blog Posts</LinkButton>
     </Container>
   )
 }
