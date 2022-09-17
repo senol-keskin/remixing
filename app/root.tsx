@@ -3,8 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react"
 import { withEmotionCache } from "@emotion/react"
 import { LinksFunction, MetaFunction } from "@remix-run/node" // Depends on the runtime you choose
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react"
-
-import { ClientStyleContext, ServerStyleContext } from "./context"
+import { ClientStyleContext, ServerStyleContext } from "app/context"
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
