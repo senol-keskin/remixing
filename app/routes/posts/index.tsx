@@ -1,30 +1,18 @@
 import { List, ListItem } from "@chakra-ui/react"
-import { json } from "@remix-run/node"
+import { json, LoaderFunction } from "@remix-run/node"
 import { useLoaderData } from "@remix-run/react"
 
 import { LinkButton } from "~/components/LinkButton"
-
-type Post = {
-  slug: string
-  title: string
-}
+import { getPosts } from "~/models/post.server"
 
 type LoaderData = {
-  posts: Array<Post>
+  posts: Awaited<ReturnType<typeof getPosts>>
 }
 
-export const loader = async () => {
+export const loader: LoaderFunction = async (event) => {
+  console.log(event.request.mode)
   return json<LoaderData>({
-    posts: [
-      {
-        slug: "my-first-post",
-        title: "My First Post",
-      },
-      {
-        slug: "90s-mixtape",
-        title: "A Mixtape I Made Just For You",
-      },
-    ],
+    posts: await getPosts(),
   })
 }
 
